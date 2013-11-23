@@ -1,0 +1,78 @@
+#!/usr/bin/env node
+
+var cmd = require('commander'),
+    flatten = require('flatten.js').flatten,
+    mockyData = require('../mockyData.js'),
+    mocky = require('../lib/mocky');
+    
+
+function error(msg) {
+  console.error('\n  error: ' + msg + '\n');
+  process.exit(1);
+}
+
+cmd.version('0.0.1');
+var globalArg = '';
+cmd.option('--arg <arg>', 'hello world', function(arg){
+  if(!arg){
+    error('arg must be numeric');
+  }
+  globalArg = arg;
+});
+
+var param = {
+  'style': 'grid'
+}
+function isString (str) {
+   return (typeof str == 'string') || (str instanceof String);
+}
+
+    
+for(var k in mockyData){
+  (function(k){
+    var data = mockyData[k],
+      command = data["command"],
+      option = data["option"],
+      fn = data["function"],
+      argv = data['argument'],
+      desc = data["description"];
+  for(var i = command.length; i--;){
+    cmd.option(command[i] + ' <opt>', desc, function(opt){
+      if(!opt){
+        error(command[i] + ' must be numeric');
+      }
+      if(!opt) opt = option;
+      if(!argv){
+        globalArg = '';
+      }
+      if(opt && opt.indexOf('@') > -1){
+        var templates = obj['templates'],
+        template,
+        p,
+        index = parseInt(opt.slice(1), 10) - 1;
+        if(templates){
+          if(isNaN(index)){
+            template = templates[parseInt(Math.random() * templates.length)];
+          }else{
+            template = templates[index];
+          }
+          if(!isString(template)){
+            for(var k in template){
+              p = param[k];
+              template = template[k];
+            }
+          }
+        }
+        
+      }
+      
+      
+      var result = mocky.run(fn, opt, globalArg, template, p);
+      console.log(result);
+    });
+  }
+  })(k);
+  
+}
+
+cmd.parse(process.argv);

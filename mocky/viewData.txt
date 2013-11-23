@@ -1,0 +1,10 @@
+data
+	key1
+		3*item1
+			ikey1@mail
+			ikey2@e(4)
+		item2
+		
+		
+data>key1>3*item>key1@mail
+data>key1>3*item>key2@e(4)

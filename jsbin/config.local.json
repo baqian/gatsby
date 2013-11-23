@@ -1,0 +1,18 @@
+{
+  "url": {
+    "host": "yuyi.taobao.com:3000",
+    "prefix": "/",
+    "ssl": false,
+    "static": false
+  },
+  "analytics": {
+    "id": null
+  },
+  "server": {
+    "logger": "default"
+  },
+  "notify": {
+    "errors": [],
+    "report": []
+  }
+}

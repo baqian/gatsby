@@ -1,0 +1,25 @@
+{
+  "url": {
+    "host": "yuyi.taobao.com:3001",
+    "prefix": "/",
+    "ssl": false,
+    "static": false
+  },
+  "analytics": {
+    "id": null
+  },
+  "store": {
+    "adapter": "sqlite",
+    "sqlite": {
+      "location": "/Applications/MAMP/htdocs/gatsby/build/gatsby.db"
+    },
+    "path": "db/mocky/sqlite"
+  },
+  "server": {
+    "logger": "default"
+  },
+  "notify": {
+    "errors": [],
+    "report": []
+  }
+}

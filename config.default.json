@@ -1,0 +1,107 @@
+{
+  "env": "development",
+  "timezone": "UTC",
+  "max-request-size": "1MB",
+  "store": {
+    "adapter": "sqlite",
+    "sqlite": {
+      "location": "/Applications/MAMP/htdocs/gatsby/build/gatsby.db"
+    },
+    "mysql": {
+      "host": "localhost",
+      "user": "root",
+      "password": "",
+      "database": "jsbin",
+      "charset": "utf8mb4",
+      "collate": "utf8mb4_unicode_ci"
+    }
+  },
+  "session": {
+    "secret": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "mail": {
+    "adapter": "sendmail",
+    "sendmail": {},
+    "smtp": {
+      "service": "Gmail",
+      "auth": {
+          "user": "",
+          "pass": ""
+      }
+    }
+  },
+  "blacklist": {
+    "html": ["processform.cgi", "habbo.com"],
+    "css": [],
+    "javascript": []
+  },
+  "reserved": [
+    "list",
+    "show",
+    "gist",
+    "about",
+    "account",
+    "accounts",
+    "activity",
+    "all",
+    "announcements",
+    "api_rules",
+    "api_terms",
+    "apirules",
+    "apps",
+    "archive",
+    "auth",
+    "badges",
+    "blog",
+    "business",
+    "contacts",
+    "devices",
+    "download",
+    "downloads",
+    "faq",
+    "favorites",
+    "favs",
+    "find_sources",
+    "find_users",
+    "followers",
+    "following",
+    "friend_request",
+    "friendrequest",
+    "friends",
+    "goodies",
+    "help",
+    "home",
+    "inbox",
+    "invitations",
+    "invite",
+    "jobs",
+    "login",
+    "logout",
+    "me",
+    "messages",
+    "notifications",
+    "nudge",
+    "oauth",
+    "privacy",
+    "rules",
+    "search",
+    "sent",
+    "settings",
+    "share",
+    "signup",
+    "signin",
+    "static",
+    "statistics",
+    "terms",
+    "tos",
+    "translate",
+    "trends",
+    "users",
+    "unarchive",
+    "user",
+    "widgets",
+    "tutorials",
+    "video",
+    "videos"
+  ]
+}

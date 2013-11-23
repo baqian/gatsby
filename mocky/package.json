@@ -1,0 +1,29 @@
+{
+  "author": "yuyi.zsj",
+  "name": "mocky",
+  "description": "Mocky",
+  "main": "./lib/app",
+  "version": "0.0.1",
+  "preferGlobal": "true",
+  "homepage": "http://mocky.com",
+  "bin": {
+    "jsbin": "./bin/mocky"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://rem.mit-license.org"
+    }
+  ],
+  "readme": "test\n",
+  "readmeFilename": "readme.md",
+  "bugs": {
+    "url": ""
+  },
+  "_id": "mocky@0.0.1",
+  "_from": "mocky@"
+}
