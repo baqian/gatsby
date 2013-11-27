@@ -1,0 +1,128 @@
+<div class="gy-navigation">
+	<div class="gy-btns">
+		<a class="gy-close" href="javascript:;" title="关闭">x</a>
+		<a class="gy-max" href="javascript:;" title="最大化">口</a>
+		<a class="gy-min" href="javascript:;" title="最小化">-</a>
+	</div>
+	<ul class="gy-nav clearfix">
+		<li><a href="http://gatsby.taobao.com:3000">需求管理</a></li>
+		<li><a href="http://gatsby.taobao.com:3001">bug反馈</a></li>
+		<li><a href="http://gatsby.taobao.com:3002">数据接口</a></li>
+		<li {{#nav}}class="selected" {{/nav}}><a href="http://gatsby.taobao.com:3003">系统导航</a></li>
+		<li><a href="http://gatsby.taobao.com:3004">周日报</a></li>
+		<li><a href="http://gatsby.taobao.com:3005">组件demo</a></li>
+	</ul>
+	<div class="gy-profile">
+		<ul class="gy-profile-btns">
+			<li><a href="javascript:;" _modal=".gy-login">Log in</a></li>
+			<li><a href="javascript:;" _modal=".gy-register">Register</a></li>
+			<li>
+				<a href="">
+					<img src="http://www.gravatar.com/avatar/f6aa5fcf15144f7fe1a14f11971d2987?s=26" />
+					yuyi.zsj
+				</a>
+				<a class="gy-avatar-arrow" href="javascript:;" _modal=".gy-avatar"></a>
+			</li>
+			<li><a href="javascript:;" _modal=".gy-help">Help</a></li>
+		</ul>
+		<div class="gy-login">
+			<form action="" method="post" id="J_login">
+				<ul>
+					<li>
+						<label>
+							Username or Email<br/>
+							<input type="text" name="username" value="" />
+						</label>
+					</li>
+					<li>
+						<label>
+							Password<br/>
+							<input type="password" name="key" value="" />
+						</label>
+					</li>
+					<li>
+						<input type="submit" value="Log in" />
+						<a href="">Reset password</a>
+					</li>
+				</ul>
+			</form>
+			<form action="" method="post" id="J_reset">
+				<div>
+					<label>
+						Username or Email<br/>
+						<input type="text" name="username" value="" />
+					</label>
+				</div>
+				<div>
+					<input type="submit" value="Request password reset"/>
+				</div>
+			</form>
+		</div>
+		<div class="gy-register">
+			<form action="" method="post" id="J_register">
+				<ul>
+					<li>
+						some text
+					</li>
+					<li>
+						<label>
+							Username<br/>
+							<input type="text" name="username" value="" />
+						</label>
+					</li>
+					<li>
+						<label>
+							Email<br/>
+							<input type="email" name="email" value="" />
+						</label>
+					</li>
+					<li>
+						<label>
+							Password<br/>
+							<input type="password" name="key" value="" />
+						</label>
+					</li>
+					<li>
+						<label>
+							Confirm<br/>
+							<input type="password" name="confirm" value="" />
+						</label>
+					</li>
+					<li>
+						<input type="submit" value="Register" />
+					</li>
+				</ul>
+			</form>
+		</div>
+		<div class="gy-avatar">
+			<form action="" mothod="post" id="J_modify">
+					<ul>
+						<li>
+							<label>
+								Email<br/>
+								<input type="email" name="email" value="" />
+							</label>
+						</li>
+						<li>
+							<label>
+								Password<br/>
+								<input type="password" name="key" value="" />
+							</label>
+						</li>
+						<li>
+							<input type="submit" value="Update account" />
+							<a href="#logout">Logout</a>
+						</li>
+					</ul>
+			</form>
+			<form action="" method="post" id="J_logout">
+				<input type="hidden" name="_csrf" value=""/>
+			</form>
+		</div>
+		<div class="gy-help">
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+</div>

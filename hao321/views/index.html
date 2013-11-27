@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{{#globalcss}}
+		<link rel="stylesheet" href="{{.}}" type="text/css">
+		{{/globalcss}}
+		{{#globaljs}}
+		<script src="{{.}}"></script>
+		{{/globaljs}}
+	</head>
+	<body id="gatsby">
+		<script>
+		globalNav.init();
+		</script>
+		<div class="gy-container gy-horizontal">
+			{{{header}}}
+			<div class="gy-wrapper">
+				
+				
+			</div>
+			{{{footer}}}
+		</div>
+	</body>
+</html>

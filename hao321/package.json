@@ -1,0 +1,29 @@
+{
+  "author": "yuyi.zsj",
+  "name": "mocky",
+  "description": "Hao321",
+  "main": "./lib/app",
+  "version": "0.0.1",
+  "preferGlobal": "true",
+  "homepage": "http://Hao321.com",
+  "bin": {
+    "jsbin": "./bin/hao321"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://rem.mit-license.org"
+    }
+  ],
+  "readme": "test\n",
+  "readmeFilename": "readme.md",
+  "bugs": {
+    "url": ""
+  },
+  "_id": "mocky@0.0.1",
+  "_from": "mocky@"
+}

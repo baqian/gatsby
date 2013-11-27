@@ -1,0 +1,278 @@
+#gatsby{
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3", "tahoma", "arial", "\5b8b\4f53";
+	background: white;
+}
+
+.gy-container,
+.gy-navigation,
+.gy-wrapper,
+.gy-footer{
+	*zoom: 1;
+}
+
+.gy-container:before,
+.gy-navigation:before,
+.gy-wrapper:before,
+.gy-footer:before,
+.gy-container:after,
+.gy-navigation:after,
+.gy-wrapper:after,
+.gy-footer:after{
+	display: table;
+	content: "";
+}
+
+.gy-container:after,
+.gy-navigation:after,
+.gy-wrapper:after,
+.gy-footer:after{
+	clear: both;
+}
+
+.gy-wrapper{
+	min-height: 300px;
+}
+
+.clearfix{
+	*zoom: 1;
+}
+
+.clearfix:after{
+	display: block;
+	height: 0;
+	clear: both;
+	content: "";
+}
+
+.gy-container{
+}
+
+.gy-navigation{
+	background-color: #38abfc;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+.gy-navigation .gy-btns a{
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	text-decoration: none;
+}
+
+.gy-navigation .gy-btns .gy-close{
+	right: 10px;
+	top: 5px;
+}
+
+.gy-navigation .gy-btns .gy-min{
+	right: 25px;
+	top: 5px;
+}
+
+.gy-navigation .gy-btns .gy-max{
+	right: 45px;
+	top: 5px;
+}
+
+.gy-navigation .gy-nav{
+	margin: 0 200px 0 110px;
+}
+
+.gy-navigation .gy-nav li{
+	float: left;
+	display: inline;
+}
+
+.gy-navigation .gy-nav a{
+	padding: 5px 10px;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	text-decoration: none;
+	color: #404040;
+}
+
+.gy-navigation .gy-nav a:hover{
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.gy-navigation .gy-nav .selected a,
+.gy-navigation .gy-nav .selected a:hover{
+	background-color: #EBF3FF;
+	background-color: hsl(215, 100%, 96%);
+}
+
+
+.gy-navigation .gy-profile{
+	position: absolute;
+	right: 100px;
+	top: 0;
+}
+
+.gy-navigation .gy-profile-btns{
+	margin: 1px;
+}
+
+.gy-navigation .gy-profile-btns li{
+	float: left;
+	display: inline;
+}
+
+.gy-navigation .gy-profile-btns img{
+	vertical-align: middle;
+}
+
+.gy-navigation .gy-profile-btns a{
+	text-decoration: none;
+	color: #404040;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 10px;
+	vertical-align: middle;
+}
+
+.gy-navigation .gy-profile-btns a:hover{
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.gy-navigation .gy-profile .gy-login,
+.gy-navigation .gy-profile .gy-register,
+.gy-navigation .gy-profile .gy-avatar,
+.gy-navigation .gy-profile .gy-help{
+	position: absolute;
+	padding: 10px 15px;
+	border: 1px solid #ccc;
+	box-shadow: 1px 4px 7px rgba(0,0,0,0.2);
+	border-radius: 5px;
+	top: 36px;
+	display: none;
+}
+
+.gy-navigation .gy-profile label{
+	display: block;
+	margin-left: 2px;
+	line-height: 20px;
+	font-weight: bold;
+}
+
+
+.gy-navigation .gy-profile input[type="submit"]{
+	font-size: 16px;
+}
+
+.gy-navigation .gy-profile input[type="text"], 
+.gy-navigation .gy-profile input[type="password"], 
+.gy-navigation .gy-profile input[type="email"], 
+.gy-navigation .gy-profile textarea{
+	border: 2px solid #b7dffd;
+	width: 95%;
+	font-size: 18px;
+	line-height: 18px;
+	padding: 2px;
+	margin: 3px 0;
+}
+
+.gy-navigation .gy-profile input[type=text]:focus,
+.gy-navigation .gy-profile input[type=email]:focus,
+.gy-navigation .gy-profile input[type=password]:focus,
+.gy-navigation .gy-profile textarea:focus {
+  border-color: hsl(206, 95%, 55%);
+  outline: none;
+}
+
+
+.gy-navigation .gy-profile .gy-login:after,
+.gy-navigation .gy-profile .gy-register:after,
+.gy-navigation .gy-profile .gy-avatar:after,
+.gy-navigation .gy-profile .gy-help:after, 
+.gy-navigation .gy-profile .gy-login:before,
+.gy-navigation .gy-profile .gy-register:before,
+.gy-navigation .gy-profile .gy-avatar:before,
+.gy-navigation .gy-profile .gy-help:before{
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  left: 80%;
+}
+
+.gy-navigation .gy-profile .gy-login:after,
+.gy-navigation .gy-profile .gy-register:after,
+.gy-navigation .gy-profile .gy-avatar:after,
+.gy-navigation .gy-profile .gy-help:after {
+  border-bottom-color: #fff;
+  border-width: 10px;
+  margin-left: -10px;
+  top: -20px;
+}
+
+.gy-navigation .gy-profile .gy-login{
+	left: -20px;
+}
+.gy-navigation .gy-profile .gy-login:after,
+.gy-navigation .gy-profile .gy-login:before{
+	left: 20%;
+}
+
+.gy-navigation .gy-profile .gy-register{
+	left: -20px;
+}
+.gy-navigation .gy-profile .gy-register:after,
+.gy-navigation .gy-profile .gy-register:before{
+	left: 50%;
+}
+
+.gy-navigation .gy-profile .gy-avatar{
+	left: 45px;
+}
+
+.gy-navigation .gy-profile .gy-help{
+	right: 20px;
+}
+
+.gy-navigation .gy-profile .gy-login:before,
+.gy-navigation .gy-profile .gy-register:before,
+.gy-navigation .gy-profile .gy-avatar:before,
+.gy-navigation .gy-profile .gy-help:before {
+  border-bottom-color: #ccc;
+  border-width: 11px;
+  margin-left: -11px;
+  top: -22px;
+}
+
+.gy-footer{
+	height: 30px;
+	background: gray;
+}
+
+
+
+
+.gy-cross-proxy{
+	display: none;
+}
+
+/* os */
+.gy-os .gy-navigation .gy-btns .gy-close{
+	left: 10px;
+}
+
+.gy-os .gy-navigation .gy-btns .gy-min{
+	left: 25px;
+}
+
+.gy-os .gy-navigation .gy-btns .gy-max{
+	right: 10px;
+}
+
+.gy-os .gy-navigation .gy-profile{
+	right: 45px;
+}

@@ -1,0 +1,129 @@
+/**
+ * 基本库 Modified from tbsp.css
+ */
+/**
+ * FIX IE6重复背景图下载
+ * @link //ued.taobao.com/blog/2010/05/17/ie6-duplicate-load-bug/
+ */
+/* 以下已经在 global 里定义了
+html {
+    zoom: epression(function(ele){ele.style.zoom = "1"; document.execCommand("BackgroundImageCache",false,true);}(this)); IE6下避免背景图片重复加载 
+}
+*/
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+}
+
+html, legend {
+    color: #404040;
+    background-color: #fff; /*避免IE下的混杂模式背景颜色 */
+}
+
+/* 块级盒模型和table的外内边距为0 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+/* 标题的字体大小继承父级的字体大小 */
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+/* 表格的边合并 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 带有默认边框的标签去掉标签 */
+fieldset, img {
+    border: none;
+}
+
+/* 表单的字体大小规定为12像素 */
+input, textarea {
+    font-size: 12px;
+}
+
+/* 疑惑？把语义化的标签的样式重置了 */
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* 去掉列表的标识 */
+li {
+    list-style: none;
+}
+
+/* 防止非IE出现了滚动条16px时，页面抖动，二来可以少一次reflow。 */
+html {
+    overflow-y: scroll;
+}
+
+a {
+    color: #0063DC;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+button {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 保证输入项和文字保持对齐 */
+input {
+    vertical-align: middle;
+}
+
+input.blur {
+    color: #BABABA;
+}
+
+/*-- form input , etc. --*/
+input.txt {
+    height: 12px;
+    padding: 3px 0 2px 2px;
+    background: #fff;
+    border: 1px solid #b5b5b5;
+    font: 100 12px/1 Tahoma, Verdana, Arial, Simsun, sans-serif;
+}
+
+input:focus, input.focus {
+    border-color: #69c;
+}
+
+select {
+    border: 1px solid #a6a6a6;
+    background: #f5f5f5;
+}
+
+option {
+    background: #fff;
+}
+
+.fm-price input.txt {
+    width: 2.2em;
+}
+
+input.focus,
+textarea.focus,
+input:focus,
+textarea:focus {
+    border-color: #6694E3 !important;
+    outline-color: #6694E3;
+}
+
+button {
+    background-color: transparent;
+}
+
+
+

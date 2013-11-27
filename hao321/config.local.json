@@ -1,12 +1,19 @@
 {
   "url": {
-    "host": "gatsby.taobao.com:3005",
+    "host": "gatsby.taobao.com:3003",
     "prefix": "/",
     "ssl": false,
     "static": false
   },
   "analytics": {
     "id": null
+  },
+  "store": {
+    "adapter": "sqlite",
+    "sqlite": {
+      "location": "/Applications/MAMP/htdocs/gatsby/build/gatsby.db"
+    },
+    "path": "db/hao321/sqlite"
   },
   "server": {
     "logger": "default"
