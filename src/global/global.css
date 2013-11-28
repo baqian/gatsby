@@ -254,9 +254,30 @@
 }
 
 
+html{
+	overflow-y: hidden;
+}
 
+.gy-wrapper{
+	overflow-y: auto;
+}
 
-.gy-cross-proxy{
+.gy-open{
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+.gy-open a{
+	display: block;
+	text-decoration: none;
+	font-size: 0;
+	width: 40px;
+	height: 30px;
+	background-color: #3babfc;
+}
+
+#gy-cross-proxy{
 	display: none;
 }
 

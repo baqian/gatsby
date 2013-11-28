@@ -59,7 +59,7 @@ if (window.jsbinified !== undefined) return;
 });
 
 // ---- here begins the jsbin embed - based on the embedding doc: https://github.com/remy/jsbin/blob/master/docs/embedding.md
-
+//http://qbaok.blog.163.com/blog/static/10129265201011275928960/
 var innerText = document.createElement('i').innerText === undefined ? 'textContent' : 'innerText';
 
 // 1. find all links with class=jsbin

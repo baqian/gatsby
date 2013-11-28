@@ -1,17 +1,19 @@
-//require sessionStorage
 KISSY.add(function(S, JSON, Event){
   var EventSource ＝ window.EventSource,
       useSS = false;
+      
+  //如果有sessionStorage,则使用
   try {
     sessionStorage.getItem('foo');
     useSS = true;
   } catch (e) {}
   
+  //规范，所有后缀为preview， edit，或者watch，都要实时更新
   var preview_suffix = /\/preview.*$/,
       edit_suffix = /\/edit.*$/,
       watch_suffix = /\/watch.*$/;
   
-  function addStyleSheet(){
+  function addStyleSheet(event){
     var id = event.id || 'J_inlineStyle',
         style = event.style;
     var style = document.getElementById(id);//jsbin-css
@@ -46,11 +48,13 @@ KISSY.add(function(S, JSON, Event){
     queue: [],
     eventSource: null,
     initialize: function(){
-      var self = this;
+      var self = this,
+          pathname = location.pathname;
       
-      var sourceId = location.pathname.replace(preview_suffix, '').replace(edit_suffix, '').replace(watch_suffix, ''),
-          codecasting = location.pathname.test(watch_suffix);//.indexOf('/watch') !== -1;
+      var sourceId = pathname.replace(preview_suffix, '').replace(edit_suffix, '').replace(watch_suffix, ''),
+          codecasting =  pathname.test(watch_suffix);//启动实时更新，而其他的只有在刷新页面的时候才更新
       if (!codecasting) {
+        //非watch还报错提示
         Event.on(window, 'error', function (e) {
           self.error({ message: e.message }, e.filename + ':' + e.lineno);
         });
@@ -127,6 +131,10 @@ KISSY.add(function(S, JSON, Event){
         window.location.reload();
       } catch (e) {}
     },
+    /**
+     * 
+     * @param {[type]} event [description]
+     */
     setCode: function(event){
       var self = this,
           editors = self.get('editors');

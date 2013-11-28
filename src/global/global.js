@@ -43,13 +43,16 @@
 		});
 	}
 	
-	var proxy = 'http://yuyi.taobao.com/ninja/proxy.php';
+		
 	function createCrossIframe(){
 		var iframe = document.createElement('iframe');
-		iframe.src = proxy;
+		updateIframe(iframe, funs['adaptHeight']);
 		iframe.id = 'gy-cross-proxy';
 		document.body.appendChild(iframe);
 		return iframe;
+	}
+	function updateIframe(iframe, func){
+		iframe.src = proxy + '?t=' + S.now() + '&func=' + func.method + '&args=' + func.args.join(',');
 	}
 	
 	function bindCrossModal(){
@@ -57,35 +60,39 @@
 		var btnBox = S.one('.gy-btns'),
 			closeBtn = btnBox.one('.gy-close'),
 			minBtn = btnBox.one('.gy-min'),
-			maxBtn = btnBox.one('.gy-max');
+			maxBtn = btnBox.one('.gy-max'),
+			openBtn = S.one('.gy-open'),
+			container = S.one('.gy-container');
+		var activeCls = 'active';
 		
-		var funs = {
-			'close': {
-				method: 'closeModal',
-				args: []
-			},
-			'min': {
-				method: 'minModal',
-				args: []
-			},
-			'max': {
-				method: 'maxModal',
-				args: []
-			}
-		}
-		
-		function updateIframe(func){
-			iframe.src = proxy + '?t=' + S.now() + '&func=' + func.method + '&args=' + func.args.join(',');
-		}
-		
-		clseBtn.on('click', function(e){
-			updateIframe(funs['close']);
+		openBtn.appendTo(S.one('body'));
+		openBtn.on('click', function(e){
+			updateIframe(iframe, funs['adaptHeight']);
+			container.show();
+			openBtn.hide();
+		})
+		closeBtn.on('click', function(e){
+			container.hide();
+			openBtn.show();
+			updateIframe(iframe, funs['close']);
 		});
 		minBtn.on('click', function(e){
-			updateIframe(funs['min']);
+			if(minBtn.hasClass(activeCls)){
+				minBtn.removeClass(activeCls)
+				updateIframe(iframe, funs['adaptHeight']);
+			}else{
+				minBtn.addClass(activeCls)
+				updateIframe(iframe, funs['min']);
+			}
 		});
 		maxBtn.on('click', function(e){
-			updateIframe(funs['max']);
+			if(minBtn.hasClass(activeCls)){
+				minBtn.removeClass(activeCls)
+				updateIframe(iframe, funs['adaptHeight']);
+			}else{
+				minBtn.addClass(activeCls)
+				updateIframe(iframe, funs['max']);
+			}
 		});
 	}
 	
@@ -93,7 +100,27 @@
 		init: function(){
 			osStyle();
 			S.ready(function(){
+				proxy = 'http://yuyi.taobao.com/ninja/proxy.php';
+				funs = {
+						'adaptHeight': {
+							method: 'adaptModalHeight',
+							args: [S.one('body').height()]
+						},
+						'close': {
+							method: 'closeModal',
+							args: [30]
+						},
+						'min': {
+							method: 'minModal',
+							args: [30]
+						},
+						'max': {
+							method: 'maxModal',
+							args: [600]
+						}
+					}
 				bindProfileNav();
+				bindCrossModal();
 			});
 		}
 	}
