@@ -9,10 +9,6 @@
     "id": null
   },
   "store": {
-    "adapter": "sqlite",
-    "sqlite": {
-      "location": "/Applications/MAMP/htdocs/gatsby/build/gatsby.db"
-    },
     "path": "db/hao321/sqlite"
   },
   "server": {

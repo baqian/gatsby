@@ -5,7 +5,8 @@
   "store": {
     "adapter": "sqlite",
     "sqlite": {
-      "location": "/Applications/MAMP/htdocs/gatsby/build/gatsby.db"
+      "location": "/build/gatsby.db",
+      "command": "/build/full-db-v3.sqlite.sql"
     },
     "mysql": {
       "host": "localhost",

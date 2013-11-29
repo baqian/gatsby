@@ -20,12 +20,13 @@ module.exports = inherit(Object, {
   defaults: null,
   constructor: function SQLite(options) {
     this.defaults = {html: '', css: '', javascript: ''};
-    this.database = options.location;
+    this.database = process.cwd() + options.location;
+    this.command = process.cwd() + options.command;
   },
   connect: function (fn) {
     var self = this;
     this.connection = new sqlite3.Database(this.database, function () {
-      fs.readFile(__dirname + '/../../build/full-db-v3.sqlite.sql', 'utf8', function (err, sql) {
+      fs.readFile(self.command, 'utf8', function (err, sql) {
         if (err) {
           return fn(err);
         }

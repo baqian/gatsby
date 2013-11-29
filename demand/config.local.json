@@ -1,6 +1,6 @@
 {
   "url": {
-    "host": "gatsby.taobao.com:3005",
+    "host": "gatsby.taobao.com:3000",
     "prefix": "/",
     "ssl": false,
     "static": false
@@ -9,7 +9,7 @@
     "id": null
   },
   "store": {
-    "path": "db/jsbin/sqlite"
+    "path": "db/demand/sqlite"
   },
   "server": {
     "logger": "default"

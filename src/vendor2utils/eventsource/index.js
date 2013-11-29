@@ -1,18 +1,14 @@
-KISSY.add(function(S, JSON, Event){
-  var EventSource ＝ window.EventSource,
-      useSS = false;
-      
-  //如果有sessionStorage,则使用
-  try {
-    sessionStorage.getItem('foo');
-    useSS = true;
-  } catch (e) {}
+KISSY.add(function(S, JSON, Event, Storage){
+  var EventSource ＝ window.EventSource;
   
   //规范，所有后缀为preview， edit，或者watch，都要实时更新
   var preview_suffix = /\/preview.*$/,
       edit_suffix = /\/edit.*$/,
       watch_suffix = /\/watch.*$/;
-  
+  function getSourceId(pathname){
+    pathname = pathname || window.location.pathname;
+    return pathname.replace(preview_suffix, '').replace(edit_suffix, '').replace(watch_suffix, '');
+  }
   function addStyleSheet(event){
     var id = event.id || 'J_inlineStyle',
         style = event.style;
@@ -28,7 +24,6 @@ KISSY.add(function(S, JSON, Event){
   
   function Spike(){
     Spike.superclass.constructor.apply(this, arguments);
-    this.initialize();
   }
   
   Spike.ATTRS = {
@@ -39,43 +34,44 @@ KISSY.add(function(S, JSON, Event){
         }
       }
     },
-    editors: {
-      value: null
+    watchCB: {
+      
     }
   }
   
   S.extend(Spike, Base, {
-    queue: [],
-    eventSource: null,
-    initialize: function(){
+    /**
+     * sourceId是实例的唯一标示，比如jsbin是一串key+id
+     * codecasting是watch状态，要求url后缀是/watch
+     * @return {[type]} [description]
+     */
+    init: function(){
       var self = this,
-          pathname = location.pathname;
-      
-      var sourceId = pathname.replace(preview_suffix, '').replace(edit_suffix, '').replace(watch_suffix, ''),
-          codecasting =  pathname.test(watch_suffix);//启动实时更新，而其他的只有在刷新页面的时候才更新
-      if (!codecasting) {
-        //非watch还报错提示
+          pathname = location.pathname,
+          sourceId = getSourceId(pathname),
+          codecasting = pathname.test(watch_suffix);
+      if (!codecasting) { //非watch
         Event.on(window, 'error', function (e) {
           self.error({ message: e.message }, e.filename + ':' + e.lineno);
         });
-
+        //恢复之前的滚动位置
         self.restore();
       }
-      
       S.later(function () {
-        self.eventSource = new EventSource(sourceId + '?' + Math.random());
+        var eventSource = new EventSource(sourceId + '?' + Math.random());
         if (codecasting) {
-          self._codecastStream();
+          self._codecastStream(eventSource);
         } else {
-          self._renderStream();
+          self._renderStream(eventSource);
         }
       }, 500);
     },
     //events = {css: addStyle, reload: reload, javascript: reload, html: reload}
-    _renderStream: function(){
+    _renderStream: function(es){
       var self = this,
-          blocks = self.get('blocks'),
-          es = self.eventSource;
+          blocks = self.get('blocks');
+      //监听事件流，这里的事件处理就是保存到sessionStorage中，然后刷新页面看最新效果。
+      //当然如果是样式的话就没必要刷新了，当前页面也可以更新
       for(var i = blocks.length; i--;){
         if(blocks[i] === 'css'){
           es.addEventListener(blocks[i], addStyleSheet]);
@@ -86,35 +82,45 @@ KISSY.add(function(S, JSON, Event){
     },
     //events = {css: setCode, javascript: setCode, html: setCode},
     //editors =jsbin.panels.panels
-    _codecastStream: function(events){
+    //watch状态下是实时更新编辑器中的代码。
+    _codecastStream: function(es){
       var self = this,
           blocks = self.get('blocks'),
-          es = self.eventSource;
+          watchCB = self.get('watchCB') || function(){};
       for(var i = blocks.length; i--;){
-        es.addEventListener(type, self.setCode);
+        es.addEventListener(type, watchCB);
       }
     }
   });
   
   S.augment(Spike, {
+    queue: [],
+    remoteWindow: null,
+    origin: null,
+    /**
+     * 把错误信息通过
+     * @param  {[type]} error [description]
+     * @param  {[type]} cmd   [description]
+     * @return {[type]}       [description]
+     */
     error: function(error, cmd){
+      var self = this,
+          remoteWindow = self.remoteWindow,
+          origin = self.origin;
       var msg = JSON.stringify({ response: error.message, cmd: cmd, type: 'error' });
-      if (remoteWindow) {
+      if (remoteWindow && origin) {
         remoteWindow.postMessage(msg, origin);
       } else {
-        this.queue.push(msg);
+        self.queue.push(msg);
       }
     },
     restore: function(){
-      var data = {},
-      rawData = useSS ? sessionStorage.spike : window.name,
-      scroll;
+      var data = Storage.getItem('spike'),
+          scroll;
 
-      if ((!useSS && window.name == 1) || !rawData) return;
+      if (!data) return;
 
       try {
-        data = JSON.parse(rawData);
-        // eval('data = ' + rawData);
         Event.on(window, 'load', function(e){
           window.scrollTo(data.x, data.y);
         });
@@ -123,22 +129,9 @@ KISSY.add(function(S, JSON, Event){
     reload: function(){
       var data = JSON.stringify({ y: window.scrollY, x: window.scrollX });
       try {
-        if (useSS) {
-          sessionStorage.spike = data;
-        } else {
-          window.name = data;
-        }
+        Storage.setItem('spike', data);
         window.location.reload();
       } catch (e) {}
-    },
-    /**
-     * 
-     * @param {[type]} event [description]
-     */
-    setCode: function(event){
-      var self = this,
-          editors = self.get('editors');
-        editors[event.type].setCode(event.data);
     }
   });
   
@@ -147,6 +140,7 @@ KISSY.add(function(S, JSON, Event){
   requires: [
   'json',
   'event',
+  'vendor2utils/storage/',
   'vendor/eventsource'
   ]
 });
