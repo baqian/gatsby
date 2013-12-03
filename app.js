@@ -9,7 +9,7 @@ hogan.renderer('./src/global/header.html', null, function(){});
 hogan.renderer('./src/global/footer.html', null, function(){});
 
 
-//jsbin.connect();
+jsbin.connect();
 // mocky.connect();
 demand.connect();
-//hao321.connect();
+hao321.connect();

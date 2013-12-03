@@ -23,12 +23,16 @@ module.exports = Observable.extend({
     utils.bindAll(this, methods);
   },
   getDefault: function(req, res, next){
+    var helpers = this.helpers;
+    
     var globalDpl = this.helpers.globalDpl();
     res.render('index', {
         globaljs: globalDpl.globaljs,
         globalcss: globalDpl.globalcss,
         header: globalDpl.header.render({nav: true}),
-        footer: globalDpl.footer.render(null)
+        footer: globalDpl.footer.render(null),
+        
+        static: helpers.urlForStatic()
     });
   }
 });

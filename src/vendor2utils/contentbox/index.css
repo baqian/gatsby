@@ -1,0 +1,242 @@
+.hao321-app-content{
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.contentbox-wrapper{
+	position: absolute;
+}
+
+.contentbox-wrapper .contentbox-box{
+	position: absolute;
+	top: 0;
+	width: 380px;
+	background-color: white;
+	border: 1px solid gray;
+	box-shadow: 0 0 3px 2px #ddd;
+	border-radius: 15px;
+	border-top-left-radius: 0;
+}
+
+.contentbox-wrapper .contentbox-target{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	padding: 9px;
+	background-color: white;
+	z-index: 100;
+	border: 1px solid gray;
+	border-radius: 15px 0 0 15px;
+	padding-right: 3px;
+	border-right: 0 none;
+	box-shadow: -5px 0 3px 2px #ddd;
+}
+
+.contentbox-wrapper .contentbox-target .summary,
+.contentbox-wrapper .contentbox-target .hao321-app-note{
+	display: none;
+}
+
+.contentbox-wrapper .contentbox-close{
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	height: 30px;
+	width: 30px;
+	border-radius: 15px;
+	background-color: white;
+}
+
+.contentbox-wrapper .summary{
+	height: 30px;
+	font-weight: bold;
+	font-size: 16px;
+	padding:0 15px;
+}
+
+.contentbox-wrapper .contentbox-edit{
+	margin: 0 15px;
+	height: 260px;
+	border-top: 1px solid #f5f5f5;
+	overflow-y: auto;
+}
+
+.contentbox-wrapper .contentbox-note{
+	padding-right: 20px;
+	padding-top: 50px;
+	padding-bottom: 20px;
+	overflow-x: auto;
+}
+
+.contentbox-wrapper .content-mine{
+	text-align: left;
+	margin-right: 80px;
+	margin-top: -40px;
+}
+
+.contentbox-wrapper .content-other{
+	text-align: right;
+	margin-top: -40px;
+	margin-left: 80px;
+}
+
+.contentbox-wrapper .tips-wrapper{
+	position: relative;
+	border: 1px solid gray;
+	border-radius: 5px 5px 0 0;
+	padding: 5px 10px;
+}
+
+.contentbox-wrapper .content-mine .tips-wrapper{
+	border-bottom-right-radius: 5px;
+	margin-left: 45px;
+}
+
+.contentbox-wrapper .content-other .tips-wrapper{
+	border-bottom-left-radius: 5px;
+	margin-right: 45px;
+}
+
+.contentbox-wrapper .tips-wrapper .arrow,
+.contentbox-wrapper .tips-wrapper .arrow i{
+	position: absolute;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	border: 10px solid gray;
+	border-top-color: transparent;
+	border-right: 0;
+	border-bottom-color: transparent;
+	_border-top-style: dotted;
+	_border-bottom-style: dotted;
+}
+
+.contentbox-wrapper .tips-wrapper .arrow{
+	left: -1px;
+	bottom: -11px;
+	
+}
+
+.contentbox-wrapper .tips-wrapper .arrow i{
+	left: -9px;
+	bottom: -7px;
+	border-left-color: white;
+	border-right-color: white;
+	border-top: 10px solid white;
+}
+
+.contentbox-wrapper .content-other .tips-wrapper .arrow{
+	left: auto;
+	right: -1px;
+	border-right: 10px solid gray;
+	border-left: 0;
+}
+
+.contentbox-wrapper .content-other .tips-wrapper .arrow i{
+	left: -1px;
+	bottom: -8px;
+	border-left: 0;
+	border-right: 10px solid white;
+}
+
+.contentbox-wrapper .avatar{
+	margin-top: 10px;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+.contentbox-wrapper .avatar .pic{
+	border-radius: 20px;
+	overflow: hidden;
+	width: 40px;
+	height: 40px;
+}
+
+.contentbox-wrapper .avatar .title{
+	text-align: center;
+}
+
+.contentbox-wrapper .h{
+	color: #f50;
+}
+
+.contentbox-wrapper .d{
+	color: #404040;
+	text-decoration: line-through;
+}
+
+.contentbox-wrapper .content-input{
+	margin-top: 0;
+	margin-right: 0;
+}
+
+.contentbox-wrapper .content-input .avatar{
+	vertical-align: middle;
+}
+
+.contentbox-wrapper .content-form{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: middle;
+}
+
+.contentbox-wrapper .content-form input{
+	font-size: 14px;
+	border: 2px solid #b7dffd;
+	height: 25px;
+	line-height: 25px;
+	width: 199px;
+	margin-left: 10px;
+}
+
+.contentbox-wrapper .content-form input:focus{
+	border-color: hsl(206, 95%, 55%);
+  	outline: none;
+}
+
+.contentbox-wrapper .content-form button{
+	height: 26px;
+	font-size: 14px;
+	width: 50px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.contentbox-wrapper-right .contentbox-target{
+	border-right: 1px solid gray;
+	border-left: 0 none;
+	border-radius: 0 15px 15px 0;
+	padding: 9px 9px 9px 3px;
+	box-shadow: 5px 0 3px 2px #ddd;
+}
+
+.contentbox-wrapper-right .contentbox-box{
+	border-radius: 15px 0 15px 15px;
+}
+
+.contentbox-wrapper-right .contentbox-close{
+	right: auto;
+	left: -10px;
+}
+
+.contentbox-wrapper-right .summary{
+	text-align: right;
+}
+
+.contentbox-wrapper .contentbox-box-bottom{
+	border-radius: 15px 15px 15px 0;
+}
+
+.contentbox-wrapper-right .contentbox-box-bottom{
+	border-radius: 15px 15px 0 15px;
+}

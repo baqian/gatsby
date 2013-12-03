@@ -1,0 +1,96 @@
+.hao321-apps{
+	*zoom: 1;
+	position: relative;
+}
+
+.hao321-apps:before,
+.hao321-apps:after{
+	display: table;
+	content: "";
+}
+
+.hao321-apps:after{
+	clear: both;
+}
+
+.hao321-apps{
+	padding: 50px 100px;
+}
+
+.hao321-app-item{
+	position: relative;
+	float: left;
+	display: inline;
+	margin: 0 50px 20px 0;
+}
+
+.hao321-app-note{
+	position: absolute;
+	right: -15px;
+	top: -15px;
+}
+
+.hao321-app-note a{
+	display: block;
+	margin: 5px;
+	border-radius: 10px;
+	width: 20px;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	color: white;
+	background-color: #f50;
+}
+
+.hao321-app-note a:hover{
+	text-decoration: none;
+	color: white;
+}
+
+.hao321-app-item .pic{
+	font-size: 0;
+	width: 100px;
+	height: 100px;
+	border-radius: 15px;
+	background-color: #e5e5e5;
+	overflow: hidden;
+	box-shadow: 0 0 3px 2px #ddd;
+	border: 1px solid #aaa;
+}
+
+.hao321-app-item .catelog{
+	border: 3px solid white;
+	overflow: hidden;
+}
+
+.hao321-app-item img{
+	display: block;
+	height: 100px;
+	width: 100px;
+}
+
+.hao321-app-item .summary{
+	margin: 5px 10px;
+	font-weight: normal; 
+}
+
+.hao321-app-item .summary a{
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.hao321-app-item ul{
+	margin: 5px;
+}
+
+.hao321-app-item li{
+	float: left;
+	display: inline;
+}
+
+.hao321-app-item li img{
+	border-radius: 3px;
+	height: 20px;
+	width: 20px;
+	margin: 5px;
+}

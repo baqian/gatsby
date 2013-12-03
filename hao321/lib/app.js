@@ -130,8 +130,7 @@ app.connect = function (callback) {
       app.use(express.logger(logger));
     }
     
-    app.use(mount, express.static(path.join(process.cwd(), 'src/global')));
-    app.use(mount, express.static(path.join(process.cwd(), 'src/vendor2utils')));
+    app.use(mount, express.static(path.join(process.cwd(), 'src')));
     //安装多个中间件
     //中间件就是在请求过程中，符合条件时立即执行，然后在才到路由指定的函数
     app.use(mount, express.static(path.join(app.set('root'), 'public')));//静态文件设置为对中间件不可见，即不对其做任何处理和改动

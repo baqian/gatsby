@@ -1,0 +1,53 @@
+.toslide-panel,
+.toslide-wrapper{
+	*zoom: 1;
+}
+
+.toslide-panel:before,
+.toslide-panel:after,
+.toslide-wrapper:before,
+.toslide-wrapper:after{
+	display: table;
+	content: "";
+}
+
+.toslide-panel:after,
+.toslide-wrapper{
+	clear: both;
+}
+
+.toslide{
+	overflow: hidden;
+}
+
+.toslide-wrapper{
+	position: relative;
+	width: 100%;
+}
+
+.toslide-panel{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+	width: 100%;
+	visibility: hidden;
+}
+
+.toslide-left,
+.toslide-right{
+	position: absolute;
+	display: none;
+	z-index: 100;
+	width: 80px;
+	height: 160px;
+	background-color: white;
+}
+
+.toslide-left{
+	left: 0;
+}
+
+.toslide-right{
+	right: 0;
+}
